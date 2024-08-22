@@ -13,6 +13,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class AmazonOrderTest {
     WebDriver driver;
     WebDriverWait driverWait;
@@ -28,6 +30,7 @@ public class AmazonOrderTest {
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.navigate().to("https://www.amazon.in/");
+        driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         signInPage = new SignInPage(driver,driverWait);
         homePage = new HomePage(driver,driverWait);
         productPage = new ProductPage(driver,driverWait);
@@ -36,14 +39,16 @@ public class AmazonOrderTest {
     @Test
     public void orderProduct() throws InterruptedException {
         signInPage.clickSignInButton();
-        signInPage.enterEmail("6382990175");
-        signInPage.enterPassword("abhi8983");
+        signInPage.enterEmail("****");
+        signInPage.enterPassword("****");
 
         homePage.searchForItem("shoes");
 
         productPage.selectProduct();
 
-        productPage.selectQuantity(5);
+        productPage.selectQuantity(4);
+
+        productPage.addToCard();
 
         productPage.clickBuyNow();
     }
