@@ -15,7 +15,7 @@ public class WaitClass {
             return driverWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         }
         catch(Exception e){
-            LOGGER.severe("Element not found: " + locator.toString() + " - " + e.getMessage());
+            System.out.println("Element not found: " + locator.toString() + " - " + e.getMessage());
             throw e;
         }
     }
@@ -25,7 +25,17 @@ public class WaitClass {
             driverWait.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
         }
         catch(Exception e){
-            LOGGER.severe("Element not found: " + locator.toString() + " - " + e.getMessage());
+            System.out.println("Element not found: " + locator.toString() + " - " + e.getMessage());
         }
+    }
+
+    public boolean waitForElementAndClickForDisplay(WebDriverWait driverWait,By locator){
+        try{
+            return driverWait.until(ExpectedConditions.visibilityOfElementLocated(locator)).isDisplayed();
+        }
+        catch (Exception e){
+            System.out.println("Element not found: " + locator.toString() + " - " + e.getMessage());
+        }
+        return false;
     }
 }

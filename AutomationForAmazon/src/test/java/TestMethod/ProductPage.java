@@ -36,7 +36,7 @@ public class ProductPage {
             switchToNewWindow();
         }
         catch (Exception e) {
-            LOGGER.severe("Failed to click on select the product : " + e.getMessage());
+            System.out.println("Failed to click on select the product : " + e.getMessage());
         }
     }
 
@@ -53,18 +53,18 @@ public class ProductPage {
             quantity.selectByIndex(index);
         }
         catch (Exception e){
-            LOGGER.severe("Failed to click on select the product quantity : " + e.getMessage());
+            System.out.println("Failed to click on select the product quantity : " + e.getMessage());
         }
     }
 
     public void addToCard() {
         try {
             waitClass.waitForElementAndClick(driverWait,locatorFile.addToCartButton);
-            waitClass.waitForElementAndClick(driverWait,locatorFile.addToCartIcon);
+            //waitClass.waitForElementAndClick(driverWait,locatorFile.addToCartIcon);
 
         }
         catch(Exception e) {
-            LOGGER.severe("Failed to click on add to card : " + e.getMessage());
+            System.out.println("Failed to click on add to card : " + e.getMessage());
         }
     }
 
@@ -73,7 +73,7 @@ public class ProductPage {
             waitClass.waitForElementAndClick(driverWait,locatorFile.buyButton);
         }
         catch (Exception e){
-            LOGGER.severe("Failed to click on Buy option : " + e.getMessage());
+            System.out.println("Failed to click on Buy option : " + e.getMessage());
         }
     }
 }

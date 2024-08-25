@@ -30,7 +30,7 @@ public class HomePage {
             waitClass.waitForElementAndClick(driverWait, locatorFile.searchIcon);
         }
         catch (Exception e){
-            LOGGER.severe("Failed to find search option : " + e.getMessage());
+            System.out.println("Failed to find search option : " + e.getMessage());
         }
     }
 }
